@@ -1,0 +1,629 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Photograph</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f6de9d77-7df7-4873-8bb5-38ed0a2bdda3" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;ixid=eyJhcHBfaWQiOjYzOTIxfQ" style="object-position:center 23.380000000000003%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🖼️</span></div><h1 class="page-title">The Photograph</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Stuff</th><td><span class="selected-value select-value-color-gray">English</span><span class="selected-value select-value-color-red">NCERT</span></td></tr></tbody></table></header><div class="page-body"><ul id="6cc3a331-6b1d-4dee-a18b-dadae08b0119" class="toggle"><li><details open=""><summary>chapter</summary><figure id="983c2b6a-1f92-4f94-ae27-250407a246b8"><div class="source"><a href="The%20Photograph%20f6de9d777df748738bb538ed0a2bdda3/kehb102.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a7d0dca8-ddd6-45df-9a9a-40bb6695f9f6/kehb102.pdf</a></div></figure></details></li></ul><h1 id="2d3bb4d7-030b-4ff4-8f29-ccd709a49f33" class="block-color-gray_background">Author -  Shirley Toulson</h1><p id="f5644e3e-62aa-4592-b343-35f0d08be4fe" class="">paddling - walking through shallow water with bare-feet</p><p id="2427afea-481c-423c-9430-8ef8b2eccf88" class="">transient - temporary</p><p id="e9acb2a3-fc61-456f-9b3d-2ba8264b24c6" class="">wry - disgusted</p><h1 id="09cd3f3d-dc41-4761-b5a6-dbb354e630d8" class="block-color-gray_background">Description</h1><h2 id="efbbc85e-b388-4083-83ef-0e21a37bc111" class="block-color-gray_background">1st Para</h2><ul id="1ba51732-2fa1-42a7-9c2e-5bde6e3cedc4" class="bulleted-list"><li>the cardboard shows me how it was - cardboard behind the picture is nice and fresh but the edges is old.</li></ul><ul id="80230df0-5a62-4182-91cd-70487a1d67e1" class="bulleted-list"><li>three girl cousins go for paddling (both holding hands of the big girl who was her mother)</li></ul><ul id="cc3e637a-7c60-4e74-bde6-a99d3a34fbbc" class="bulleted-list"><li>her mother was 12 years old then</li></ul><ul id="f3fce94c-72af-43f8-8d3d-60c48923f469" class="bulleted-list"><li>smiled and took a photograph their</li></ul><ul id="9b22b38f-dc6c-4ece-a088-3838515aa1d7" class="bulleted-list"><li>her mother had a sweet face</li></ul><ul id="830d9156-9343-4be2-b3f9-b49070e5461b" class="bulleted-list"><li>sea (background) has changed less, but the girls have a lot</li></ul><h2 id="22dd5b22-729c-4186-a311-c14d3521ad0d" class="block-color-gray_background">2nd Para</h2><ul id="35bb06c1-86cc-4499-9822-c8d547a35bf2" class="bulleted-list"><li>the photograph was viewed 20-30 years by the mother itself</li></ul><ul id="763a5397-17bc-4363-b33a-22669c229318" class="bulleted-list"><li>she would laugh at it and say (look at betty and dolly and look how they dressed us)</li></ul><ul id="c8bf47c0-b19e-474f-adaa-286bbb03815e" class="bulleted-list"><li>the cousins were Betty and Dolly</li></ul><ul id="bd577803-bcf3-4272-a59b-2434297b88fa" class="bulleted-list"><li>Mother looking at the photo is her past and the laughter of mother looking at the photo is the author&#x27;s past</li></ul><ul id="194b81d6-e36d-454f-b075-0fe8b3b7d9d2" class="bulleted-list"><li>both disgusted by their losses (mother - her youth , childhood was the loss)(author - her mother is her loss)</li></ul><h2 id="301f9ea9-c0d6-4d85-acbb-f62fc0957a52" class="block-color-gray_background">3rd para</h2><ul id="1879f40e-1ef1-4db2-abd4-4e9cccda7314" class="bulleted-list"><li>she has been dead for a very long time (same time as she lived)</li></ul><ul id="f66d94bc-34b3-4865-bf1a-87452b8bb425" class="bulleted-list"><li>the silence that the death has brought silences a lot of things around it (death of mother has silenced the daughter&#x27;s life)</li></ul><h1 id="f54933c2-9d7a-4958-9268-8690a67c5291" class="block-color-gray_background">Figures of Speech</h1><ul id="8f9a76f1-ad50-493d-b7b6-e8e0400fcb81" class="bulleted-list"><li>The cardboard shows me - Allusion (cardboard used to represent the photograph)</li></ul><ul id="8702f55e-35ec-4586-9045-c1986e0696f3" class="bulleted-list"><li>All three stood still to smile through their hair - Alliteration (s repeated thrice) (line 1.5)</li></ul><ul id="f6d35b15-846e-4cfd-a2c8-f9bb8d158103" class="bulleted-list"><li>Washed their terribly transient feet - Transferred Epithet (adjective transient has been transferred to the feet but means the human life is temporary) (line 1.9)</li></ul><ul id="91e832c8-36fa-43f2-bb11-b4c4f8ebbbe4" class="bulleted-list"><li>laboured ease  - oxymoron (both have different meanings in the same phrase)(line 2.6)</li></ul><ul id="23e1497e-421e-432f-a0f9-c7e7c69990c2" class="bulleted-list"><li>silence silences - Personification (The silence has been given the human property to silence something)</li></ul><p id="f532f775-0cef-4336-9aba-5d88dbefaab3" class="">
+</p><h2 id="88f1b78b-5170-46ab-811a-767fc5594a38" class="block-color-gray_background">Structure</h2><p id="98438169-96bc-4262-ab76-b2fc5df17697" class="">1st para - 9 lines</p><p id="45ef0c88-c370-4979-b71e-d96f0b900e93" class="">2nd para - 6 lines</p><p id="2d25aea7-e6f8-43cc-90a4-3a446d108af0" class="">3rd para - 4 lines</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="119226ca-53ad-4132-b276-9cef7f8497da"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">lot of activity to very low activity </div></figure><p id="968e28d6-a362-4c41-ab9c-4fcdc5bc395e" class="">
+</p><ul id="e68e8efd-4cc6-48ab-83f9-f538f21b0f2c" class="toggle"><li><details open=""><summary>Answers</summary><ul id="b553b284-a7d8-4f75-b301-36c3c77b7628" class="toggle"><li><details open=""><summary>1.1</summary><p id="b23c0929-7b1e-402f-99b5-297d0efad69a" class="">photograph of her mother, photo is spoiled but cardboard is still nice</p></details></li></ul><ul id="e6c11d75-ced3-42ba-833b-ba05af2fa4d8" class="toggle"><li><details open=""><summary>1.2</summary><p id="91d7d056-9163-42e4-9033-741552769356" class="">a youthful moment in the life of her mother</p></details></li></ul><ul id="de425fc3-bdf6-4099-a7f2-b9e059caea26" class="toggle"><li><details open=""><summary>1.3</summary><p id="f0e6e12b-3055-4ccd-b302-8e8140e4e372" class="">the sea, the poet has brought out the transient nature if the human life by contrasting it to the sea in the background that has not changed.</p></details></li></ul><ul id="22faf5c4-d988-4e80-82b5-0c562f903769" class="toggle"><li><details open=""><summary>1.4</summary><p id="49a2ad90-5086-4b93-af16-b91caa072e31" class="">cherished her fond memories</p></details></li></ul><ul id="d6dd5ec8-6b4c-4264-8097-1317999a6bce" class="toggle"><li><details open=""><summary>1.5</summary><p id="8ff6e2f3-409c-426e-9925-abfa8856db25" class="">the mother and daughter both have had their share of losses</p></details></li></ul><ul id="a6a86631-6b66-4cc4-a62c-7c8ecc70011a" class="toggle"><li><details open=""><summary>1.6</summary><p id="10d07569-0e14-4279-b4b1-79848d96e292" class="">the mothers death</p></details></li></ul><ul id="b319724a-0dab-4cb7-b822-58c696fa7e38" class="toggle"><li><details open=""><summary>1.7</summary><ol id="3a43a543-ae4c-4b43-bf95-933c3cccfc56" class="numbered-list" start="1"><li>Mother is 12 years</li></ol><ol id="7359ec8f-8db4-4825-a856-137cfe8eaddb" class="numbered-list" start="2"><li>Mother is 32-42 years</li></ol><ol id="3003b6b0-1099-4b6d-8329-3484da491a9e" class="numbered-list" start="3"><li>Mother is dead</li></ol></details></li></ul></details></li></ul></div></article></body></html>
